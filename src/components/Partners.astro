@@ -1,0 +1,56 @@
+---
+const partners = [
+  { name: 'Sumer', url: 'https://sumer.com.pl' },
+  { name: 'MedTech Systems', url: '/' },
+  { name: 'RehaPlus', url: '/' },
+  { name: 'DiagMed', url: '/' },
+  { name: 'PhysioEquip', url: '/' },
+  { name: 'VitaMed', url: '/' },
+];
+---
+
+<section class="py-16 lg:py-24 bg-surface-alt">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-3xl lg:text-4xl font-bold text-secondary mb-4">Współpracujemy z</h2>
+      <p class="text-text-light text-lg">
+        Zaufani producenci i dostawcy sprzętu medycznego, z którymi współpracujemy na co dzień.
+      </p>
+    </div>
+
+    <div class="relative overflow-hidden" id="partners-carousel">
+      <div class="flex animate-scroll gap-8 lg:gap-12" id="partners-track">
+        {[...partners, ...partners].map((partner) => (
+          <a
+            href={partner.url}
+            target={partner.url !== '/' ? '_blank' : undefined}
+            rel={partner.url !== '/' ? 'noopener noreferrer' : undefined}
+            class="flex-shrink-0 w-48 h-24 bg-white rounded-xl border border-slate-200 flex items-center justify-center px-6 hover:border-primary/30 hover:shadow-md transition-all group"
+          >
+            <span class="text-xl font-bold text-text-light group-hover:text-primary transition-colors">{partner.name}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <p class="text-center text-sm text-text-light mt-8">
+      Chcesz nawiązać współpracę? <a href="/kontakt" class="text-primary font-medium hover:underline">Skontaktuj się z nami</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-scroll {
+    animation: scroll 20s linear infinite;
+    width: max-content;
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+</style>

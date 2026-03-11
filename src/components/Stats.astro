@@ -1,0 +1,21 @@
+---
+const stats = [
+  { value: '15+', label: 'Lat doświadczenia' },
+  { value: '2000+', label: 'Naprawionych urządzeń' },
+  { value: '500+', label: 'Zadowolonych klientów' },
+  { value: '24h', label: 'Czas reakcji' },
+];
+---
+
+<section class="py-16 bg-primary">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      {stats.map((stat) => (
+        <div class="text-center">
+          <div class="text-4xl lg:text-5xl font-extrabold text-white mb-2">{stat.value}</div>
+          <div class="text-primary-light text-sm lg:text-base font-medium">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

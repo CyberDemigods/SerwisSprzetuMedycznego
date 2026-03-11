@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTA from '../components/CTA.astro';
+
+const categories = [
+  {
+    title: 'Sprzęt rehabilitacyjny',
+    items: ['Stoły rehabilitacyjne', 'Łóżka rehabilitacyjne', 'Rowery treningowe medyczne', 'Urządzenia do elektroterapii', 'Aparaty do magnetoterapii', 'Bieżnie rehabilitacyjne'],
+  },
+  {
+    title: 'Sprzęt diagnostyczny',
+    items: ['Aparaty USG', 'Elektrokardiografy (EKG)', 'Spirometry', 'Pulsoksymetry', 'Ciśnieniomierze kliniczne', 'Monitory pacjenta'],
+  },
+  {
+    title: 'Sprzęt chirurgiczny',
+    items: ['Stoły operacyjne', 'Lampy operacyjne', 'Diatermie chirurgiczne', 'Ssaki medyczne', 'Aparaty do elektrokoagulacji', 'Narzędzia chirurgiczne z napędem'],
+  },
+  {
+    title: 'Sprzęt laboratoryjny',
+    items: ['Wirówki laboratoryjne', 'Autoklawy', 'Mikroskopy', 'Analizatory biochemiczne', 'Inkubatory', 'Zamrażarki medyczne'],
+  },
+  {
+    title: 'Sprzęt stomatologiczny',
+    items: ['Unity stomatologiczne', 'Autoklawy stomatologiczne', 'Lampy polimeryzacyjne', 'Skalery ultradźwiękowe', 'Aparaty RTG stomatologiczne', 'Kompresory stomatologiczne'],
+  },
+  {
+    title: 'Sprzęt szpitalny',
+    items: ['Łóżka szpitalne', 'Wózki inwalidzkie', 'Koncentratory tlenu', 'Respiratory', 'Pompy infuzyjne', 'Defibrylatory'],
+  },
+];
+
+const serviceTypes = [
+  {
+    title: 'Naprawy',
+    description: 'Diagnozujemy i naprawiamy usterki wszelkiego rodzaju sprzętu medycznego. Dysponujemy szerokim zapleczem części zamiennych i narzędzi specjalistycznych.',
+    features: ['Diagnostyka usterek', 'Wymiana podzespołów', 'Naprawa elektroniki', 'Regeneracja mechanizmów'],
+  },
+  {
+    title: 'Przeglądy techniczne',
+    description: 'Regularne przeglądy zapewniają ciągłość pracy sprzętu i zgodność z wymogami prawnymi. Prowadzimy pełną dokumentację przeglądów.',
+    features: ['Przeglądy okresowe', 'Testy bezpieczeństwa', 'Kontrola parametrów', 'Dokumentacja techniczna'],
+  },
+  {
+    title: 'Kalibracja',
+    description: 'Precyzyjna kalibracja urządzeń pomiarowych i diagnostycznych. Zapewniamy zgodność z normami i wymaganiami producenta.',
+    features: ['Kalibracja pomiarowa', 'Weryfikacja dokładności', 'Certyfikaty kalibracji', 'Zgodność z normami'],
+  },
+  {
+    title: 'Umowy serwisowe',
+    description: 'Elastyczne umowy serwisowe dopasowane do potrzeb placówki. Gwarantujemy priorytetową obsługę i przewidywalne koszty.',
+    features: ['Priorytetowa obsługa', 'Stałe stawki miesięczne', 'Regularne przeglądy', 'Części zamienne w cenie'],
+  },
+];
+---
+
+<Layout title="Usługi" description="Pełen zakres usług serwisowych sprzętu medycznego: naprawy, przeglądy techniczne, kalibracja, konserwacja i umowy serwisowe.">
+  <section class="bg-gradient-to-br from-secondary to-primary-dark py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl lg:text-5xl font-extrabold text-white mb-4">Nasze usługi</h1>
+      <p class="text-slate-300 text-lg max-w-2xl">
+        Kompleksowy serwis sprzętu medycznego — od diagnostyki usterki po regularną konserwację.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-secondary mb-12">Zakres usług</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {serviceTypes.map((service) => (
+          <div class="p-8 rounded-2xl border border-slate-200 hover:border-primary/30 transition-colors">
+            <h3 class="text-2xl font-bold text-secondary mb-3">{service.title}</h3>
+            <p class="text-text-light mb-6">{service.description}</p>
+            <ul class="space-y-2">
+              {service.features.map((feature) => (
+                <li class="flex items-center gap-3 text-sm">
+                  <svg class="w-5 h-5 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span class="text-text">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-surface-alt">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-secondary mb-4">Obsługiwany sprzęt</h2>
+      <p class="text-text-light text-lg mb-12 max-w-2xl">
+        Serwisujemy szeroką gamę sprzętu medycznego. Poniżej znajdziesz przykładowe kategorie urządzeń, które naprawiamy.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {categories.map((category) => (
+          <div class="bg-white p-6 rounded-2xl border border-slate-200">
+            <h3 class="text-lg font-bold text-secondary mb-4">{category.title}</h3>
+            <ul class="space-y-2">
+              {category.items.map((item) => (
+                <li class="flex items-center gap-2 text-sm text-text-light">
+                  <span class="w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</Layout>

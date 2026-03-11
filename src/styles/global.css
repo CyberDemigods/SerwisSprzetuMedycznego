@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-primary: #0e7490;
+  --color-primary-dark: #0c5f75;
+  --color-primary-light: #22a3c3;
+  --color-secondary: #1e3a5f;
+  --color-accent: #10b981;
+  --color-accent-dark: #059669;
+  --color-surface: #f8fafc;
+  --color-surface-alt: #f1f5f9;
+  --color-text: #1e293b;
+  --color-text-light: #64748b;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}

@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Partners from '../components/Partners.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<Layout title="O firmie" description="Serwis Sprzętu Medycznego — doświadczony zespół techników z siedzibą w Opolu, obsługujący placówki medyczne na terenie całej Polski.">
+  <section class="bg-gradient-to-br from-secondary to-primary-dark py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl lg:text-5xl font-extrabold text-white mb-4">O firmie</h1>
+      <p class="text-slate-300 text-lg max-w-2xl">
+        Poznaj nasz zespół i dowiedz się, dlaczego placówki medyczne w całej Polsce nam zaufały.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-secondary mb-6">Kim jesteśmy</h2>
+          <div class="space-y-4 text-text-light leading-relaxed">
+            <p>
+              <strong class="text-text">Serwis Sprzętu Medycznego</strong> to firma z siedzibą w Opolu, specjalizująca się
+              w kompleksowej obsłudze serwisowej urządzeń medycznych. Działamy na terenie całej Polski,
+              zapewniając szybką i profesjonalną pomoc techniczną.
+            </p>
+            <p>
+              Nasz zespół składa się z doświadczonych techników i inżynierów, którzy posiadają
+              wiedzę i kwalifikacje do serwisowania szerokiej gamy sprzętu medycznego — od urządzeń
+              rehabilitacyjnych, przez aparaturę diagnostyczną, po sprzęt chirurgiczny i laboratoryjny.
+            </p>
+            <p>
+              Ściśle współpracujemy z producentami sprzętu medycznego, w tym z firmą
+              <strong class="text-text">Sumer</strong> — polskim producentem stołów i sprzętu do rehabilitacji medycznej.
+              Dzięki temu mamy dostęp do oryginalnych części zamiennych i dokumentacji technicznej.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-surface-alt rounded-2xl p-8 lg:p-10">
+          <h3 class="text-xl font-bold text-secondary mb-6">Dlaczego my?</h3>
+          <ul class="space-y-4">
+            {[
+              { title: 'Doświadczenie', desc: 'Wieloletnie doświadczenie w serwisie sprzętu medycznego' },
+              { title: 'Zasięg ogólnopolski', desc: 'Realizujemy zlecenia na terenie całej Polski' },
+              { title: 'Szybka reakcja', desc: 'Czas reakcji do 24 godzin od zgłoszenia' },
+              { title: 'Gwarancja na usługi', desc: 'Udzielamy gwarancji na wszystkie wykonane naprawy' },
+              { title: 'Oryginalne części', desc: 'Używamy wyłącznie oryginalnych lub certyfikowanych części zamiennych' },
+              { title: 'Dokumentacja', desc: 'Pełna dokumentacja serwisowa zgodna z wymogami prawnymi' },
+            ].map((item) => (
+              <li class="flex gap-4">
+                <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-secondary">{item.title}</div>
+                  <div class="text-sm text-text-light">{item.desc}</div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-surface-alt">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-secondary mb-4">Zasięg działania</h2>
+      <p class="text-text-light text-lg mb-8">
+        Nasza siedziba mieści się w <strong class="text-text">Opolu</strong>, ale obsługujemy klientów z całej Polski.
+        Dysponujemy mobilnym zespołem serwisowym, który dojeżdża bezpośrednio do placówki klienta.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl border border-slate-200 text-center">
+          <div class="text-3xl font-extrabold text-primary mb-2">16</div>
+          <div class="text-text-light text-sm">województw w zasięgu</div>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-slate-200 text-center">
+          <div class="text-3xl font-extrabold text-primary mb-2">Opole</div>
+          <div class="text-text-light text-sm">siedziba firmy</div>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-slate-200 text-center">
+          <div class="text-3xl font-extrabold text-primary mb-2">24h</div>
+          <div class="text-text-light text-sm">maksymalny czas reakcji</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Partners />
+  <CTA />
+</Layout>
