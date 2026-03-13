@@ -1,0 +1,30 @@
+---
+const brands = [
+  'Sumer', 'GE Healthcare', 'Siemens Healthineers', 'Philips', 'Toshiba Medical',
+  'Dräger', 'Mindray', 'BTL', 'Meden-Inmed', 'Gymna', 'Chattanooga', 'Enraf-Nonius',
+  'Storz Medical', 'Zimmer MedizinSysteme', 'EMS', 'Famed Żywiec',
+];
+---
+
+<section class="py-16 lg:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-3xl lg:text-4xl font-bold text-secondary mb-4">Serwisujemy sprzęt wiodących producentów</h2>
+      <p class="text-text-light text-lg">
+        Posiadamy doświadczenie w naprawie i konserwacji urządzeń medycznych czołowych światowych i polskich producentów.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      {brands.map((brand) => (
+        <div class="flex items-center justify-center h-16 px-4 bg-surface-alt rounded-xl border border-slate-200 hover:border-primary/30 hover:shadow-sm transition-all">
+          <span class="text-sm font-semibold text-text-light text-center">{brand}</span>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-center text-sm text-text-light mt-8">
+      Nie widzisz swojego producenta? <a href="/kontakt" class="text-primary font-medium hover:underline">Skontaktuj się z nami</a> — serwisujemy sprzęt wielu innych marek.
+    </p>
+  </div>
+</section>
