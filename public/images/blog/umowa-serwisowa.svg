@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <circle cx="680" cy="80" r="100" fill="#10b981" opacity="0.05"/>
+  <circle cx="120" cy="380" r="90" fill="#0e7490" opacity="0.05"/>
+  <!-- Document -->
+  <rect x="310" y="60" width="180" height="240" rx="8" fill="white" stroke="#1e3a5f" stroke-width="3"/>
+  <!-- Document header -->
+  <rect x="330" y="82" width="140" height="4" rx="2" fill="#0e7490"/>
+  <rect x="345" y="94" width="110" height="3" rx="1.5" fill="#0e7490" opacity="0.3"/>
+  <!-- Document lines -->
+  <rect x="335" y="118" width="130" height="5" rx="2.5" fill="#cbd5e1"/>
+  <rect x="335" y="134" width="110" height="5" rx="2.5" fill="#cbd5e1"/>
+  <rect x="335" y="150" width="125" height="5" rx="2.5" fill="#cbd5e1"/>
+  <rect x="335" y="166" width="100" height="5" rx="2.5" fill="#cbd5e1"/>
+  <rect x="335" y="182" width="120" height="5" rx="2.5" fill="#cbd5e1"/>
+  <rect x="335" y="198" width="90" height="5" rx="2.5" fill="#cbd5e1"/>
+  <!-- Signature line -->
+  <line x1="335" y1="260" x2="410" y2="260" stroke="#1e3a5f" stroke-width="1.5"/>
+  <line x1="420" y1="260" x2="470" y2="260" stroke="#1e3a5f" stroke-width="1.5"/>
+  <!-- Signature squiggle -->
+  <path d="M340,255 Q350,245 360,255 Q370,265 380,252" stroke="#0e7490" stroke-width="1.5" fill="none"/>
+  <!-- Pen -->
+  <g transform="translate(450, 240) rotate(-30)">
+    <rect x="-3" y="-35" width="6" height="35" rx="1" fill="#1e3a5f"/>
+    <polygon points="-3,0 3,0 0,10" fill="#1e3a5f"/>
+  </g>
+  <!-- Handshake -->
+  <g transform="translate(400, 380)">
+    <!-- Left hand -->
+    <path d="M-70,-20 Q-60,-35 -40,-30 L-10,-15 Q0,-10 10,-15 L25,-25" stroke="#1e3a5f" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Right hand -->
+    <path d="M70,-20 Q60,-35 40,-30 L10,-15 Q0,-10 -10,-15 L-25,-25" stroke="#0e7490" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Clasped area -->
+    <ellipse cx="0" cy="-20" rx="20" ry="12" fill="white" stroke="#1e3a5f" stroke-width="2.5" opacity="0.9"/>
+    <!-- Fingers interlocked -->
+    <path d="M-12,-22 Q-5,-30 5,-22" stroke="#1e3a5f" stroke-width="2" fill="none"/>
+    <path d="M-8,-18 Q0,-10 8,-18" stroke="#0e7490" stroke-width="2" fill="none"/>
+  </g>
+  <!-- Shield/trust icons -->
+  <g transform="translate(160, 160)">
+    <path d="M0,-35 L30,-18 L30,12 Q30,35 0,45 Q-30,35 -30,12 L-30,-18 Z" fill="#10b981" opacity="0.1" stroke="#10b981" stroke-width="2"/>
+    <path d="M-8,5 l6,6 12-12" stroke="#10b981" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Currency/value symbol -->
+  <g transform="translate(640, 180)">
+    <circle cx="0" cy="0" r="30" fill="#0e7490" opacity="0.1" stroke="#0e7490" stroke-width="2"/>
+    <path d="M-8,-12 Q-12,-12 -12,-6 Q-12,0 0,3 Q12,6 12,12 Q12,18 8,18 M0,-18 L0,24 M-6,-18 L6,-18 M-6,24 L6,24" stroke="#0e7490" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

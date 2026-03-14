@@ -1,0 +1,224 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTA from '../../components/CTA.astro';
+
+export function getStaticPaths() {
+  const cities = [
+  { slug: 'warszawa', name: 'Warszawa', voivodeship: 'mazowieckie', region: 'Mazowsza', desc: 'Jako stolica Polski, Warszawa koncentruje największą liczbę placówek medycznych w kraju. Szpitale kliniczne, centra diagnostyczne i prywatne kliniki wymagają niezawodnego zaplecza serwisowego.', intro: 'Zapewniamy kompleksową obsługę serwisową urządzeń medycznych na terenie Warszawy i całego województwa mazowieckiego. Nasz zespół regularnie obsługuje placówki w stolicy, gwarantując krótkie czasy reakcji.' },
+  { slug: 'krakow', name: 'Kraków', voivodeship: 'małopolskie', region: 'Małopolski', desc: 'Kraków to jeden z najważniejszych ośrodków medycznych w południowej Polsce. Rozbudowana sieć szpitali uniwersyteckich i centrów badawczych wymaga profesjonalnego wsparcia technicznego.', intro: 'Obsługujemy placówki medyczne w Krakowie i na terenie województwa małopolskiego. Dzięki regularnym wizytom serwisowym w regionie Małopolski, zapewniamy ciągłość pracy sprzętu medycznego.' },
+  { slug: 'wroclaw', name: 'Wrocław', voivodeship: 'dolnośląskie', region: 'Dolnego Śląska', desc: 'Wrocław jako centrum medyczne Dolnego Śląska posiada rozbudowaną infrastrukturę szpitalną i kliniczną. Dynamicznie rozwijający się sektor prywatnej opieki zdrowotnej generuje rosnące zapotrzebowanie na serwis sprzętu.', intro: 'Świadczymy usługi serwisowe na terenie Wrocławia i województwa dolnośląskiego. Regularna obecność naszych techników w regionie pozwala na szybką reakcję i planowe przeglądy.' },
+  { slug: 'poznan', name: 'Poznań', voivodeship: 'wielkopolskie', region: 'Wielkopolski', desc: 'Poznań to kluczowy ośrodek medyczny zachodniej Polski. Szpitale kliniczne, centra onkologiczne i nowoczesne laboratoria diagnostyczne tworzą silne zapotrzebowanie na profesjonalny serwis urządzeń.', intro: 'Realizujemy usługi serwisowe w Poznaniu i na terenie województwa wielkopolskiego. Nasze doświadczenie w obsłudze dużych placówek medycznych regionu Wielkopolski przekłada się na najwyższą jakość usług.' },
+  { slug: 'gdansk', name: 'Gdańsk', voivodeship: 'pomorskie', region: 'Pomorza', desc: 'Gdańsk wraz z Trójmiastem stanowi najważniejsze centrum medyczne północnej Polski. Uniwersyteckie Centrum Kliniczne oraz liczne kliniki specjalistyczne wymagają stałego wsparcia serwisowego.', intro: 'Obsługujemy placówki medyczne w Gdańsku, Trójmieście i całym województwie pomorskim. Nasi technicy znają specyfikę regionu Pomorza i zapewniają terminową realizację zleceń.' },
+  { slug: 'lodz', name: 'Łódź', voivodeship: 'łódzkie', region: 'łódzkiego', desc: 'Łódź to drugi co do wielkości ośrodek medyczny w centralnej Polsce. Bogate zaplecze szpitalne i akademickie miasta generuje stałe zapotrzebowanie na konserwację i naprawy aparatury medycznej.', intro: 'Świadczymy kompleksowe usługi serwisowe w Łodzi i województwie łódzkim. Centralne położenie regionu łódzkiego pozwala nam na sprawną logistykę i szybki dojazd do każdej placówki.' },
+  { slug: 'katowice', name: 'Katowice', voivodeship: 'śląskie', region: 'Śląska', desc: 'Katowice i Górnośląski Okręg Przemysłowy to obszar o bardzo wysokim zagęszczeniu placówek medycznych. Liczne szpitale, kliniki i przychodnie aglomeracji śląskiej tworzą jeden z największych rynków serwisowych w kraju.', intro: 'Obsługujemy placówki medyczne w Katowicach i na terenie całego województwa śląskiego. Gęsta sieć placówek w regionie Śląska wymaga regularnego i niezawodnego serwisu, który zapewniamy.' },
+  { slug: 'lublin', name: 'Lublin', voivodeship: 'lubelskie', region: 'Lubelszczyzny', desc: 'Lublin jako największy ośrodek medyczny wschodniej Polski posiada rozbudowane zaplecze szpitalne i akademickie. Szpitale kliniczne i centra specjalistyczne wymagają systematycznej obsługi technicznej.', intro: 'Realizujemy usługi serwisowe w Lublinie i na terenie województwa lubelskiego. Nasze regularne wizyty w regionie Lubelszczyzny zapewniają sprawną opiekę techniczną nad sprzętem medycznym.' },
+  { slug: 'szczecin', name: 'Szczecin', voivodeship: 'zachodniopomorskie', region: 'Pomorza Zachodniego', desc: 'Szczecin to główne centrum medyczne północno-zachodniej Polski. Szpitale kliniczne i specjalistyczne placówki zdrowotne miasta obsługują cały region zachodniopomorski.', intro: 'Świadczymy usługi serwisowe na terenie Szczecina i województwa zachodniopomorskiego. Regularna obsługa placówek w regionie Pomorza Zachodniego to nasza specjalność.' },
+  { slug: 'bydgoszcz', name: 'Bydgoszcz', voivodeship: 'kujawsko-pomorskie', region: 'Kujaw i Pomorza', desc: 'Bydgoszcz razem z Toruniem tworzy dwubiegunowy ośrodek medyczny województwa kujawsko-pomorskiego. Szpitale uniwersyteckie i regionalne centrum onkologii wymagają stałego serwisu.', intro: 'Obsługujemy placówki w Bydgoszczy i na terenie województwa kujawsko-pomorskiego. Bliskość obu głównych miast regionu Kujaw i Pomorza umożliwia nam efektywną obsługę całego województwa.' },
+  { slug: 'bialystok', name: 'Białystok', voivodeship: 'podlaskie', region: 'Podlasia', desc: 'Białystok to najważniejsze centrum medyczne północno-wschodniej Polski. Uniwersytecki Szpital Kliniczny i liczne placówki specjalistyczne stanowią podstawę opieki zdrowotnej w regionie.', intro: 'Realizujemy serwis sprzętu medycznego w Białymstoku i na terenie województwa podlaskiego. Docieramy do placówek w całym regionie Podlasia, zapewniając profesjonalną obsługę techniczną.' },
+  { slug: 'czestochowa', name: 'Częstochowa', voivodeship: 'śląskie', region: 'północnej części Śląska', desc: 'Częstochowa to ważny ośrodek medyczny na pograniczu województw śląskiego i łódzkiego. Szpitale miejskie i specjalistyczne kliniki wymagają regularnej konserwacji aparatury diagnostycznej i terapeutycznej.', intro: 'Obsługujemy placówki medyczne w Częstochowie i okolicach. Strategiczne położenie miasta na styku regionów pozwala nam efektywnie obsługiwać placówki z północnej części Śląska.' },
+  { slug: 'radom', name: 'Radom', voivodeship: 'mazowieckie', region: 'południowego Mazowsza', desc: 'Radom jako drugie co do wielkości miasto województwa mazowieckiego dysponuje rozbudowanym zapleczem szpitalnym. Placówki medyczne miasta obsługują szerokie zaplecze południowego Mazowsza.', intro: 'Świadczymy usługi serwisowe w Radomiu i na terenie południowego Mazowsza. Bliskość Warszawy i dobra infrastruktura drogowa pozwalają nam na szybki dojazd do każdej placówki w regionie.' },
+  { slug: 'rzeszow', name: 'Rzeszów', voivodeship: 'podkarpackie', region: 'Podkarpacia', desc: 'Rzeszów to dynamicznie rozwijające się centrum medyczne południowo-wschodniej Polski. Nowoczesne szpitale kliniczne i centra zdrowia wymagają profesjonalnego wsparcia serwisowego.', intro: 'Realizujemy serwis sprzętu medycznego w Rzeszowie i województwie podkarpackim. Region Podkarpacia rozwija swoją infrastrukturę medyczną, a my zapewniamy jej sprawne funkcjonowanie.' },
+  { slug: 'torun', name: 'Toruń', voivodeship: 'kujawsko-pomorskie', region: 'Kujaw i Pomorza', desc: 'Toruń jako ważne centrum akademickie i medyczne dysponuje nowoczesnymi placówkami zdrowotnymi. Szpitale specjalistyczne i kliniki uniwersyteckie wymagają regularnej obsługi technicznej.', intro: 'Obsługujemy placówki medyczne w Toruniu i na terenie województwa kujawsko-pomorskiego. Nasze doświadczenie w regionie Kujaw i Pomorza gwarantuje profesjonalną opiekę nad aparaturą medyczną.' },
+  { slug: 'kielce', name: 'Kielce', voivodeship: 'świętokrzyskie', region: 'Świętokrzyskiego', desc: 'Kielce to centrum medyczne województwa świętokrzyskiego z silnym zapleczem szpitalnym. Wojewódzki Szpital Zespolony i kliniki specjalistyczne stanowią kluczowych odbiorców usług serwisowych.', intro: 'Świadczymy kompleksowy serwis sprzętu medycznego w Kielcach i województwie świętokrzyskim. Regularne wizyty w regionie Świętokrzyskiego zapewniają sprawne działanie aparatury medycznej.' },
+  { slug: 'olsztyn', name: 'Olsztyn', voivodeship: 'warmińsko-mazurskie', region: 'Warmii i Mazur', desc: 'Olsztyn to główny ośrodek medyczny województwa warmińsko-mazurskiego. Szpitale kliniczne i centra specjalistyczne obsługują rozległy region o zróżnicowanej infrastrukturze zdrowotnej.', intro: 'Realizujemy usługi serwisowe w Olsztynie i na terenie województwa warmińsko-mazurskiego. Docieramy do placówek w całym regionie Warmii i Mazur, niezależnie od ich lokalizacji.' },
+  { slug: 'opole', name: 'Opole', voivodeship: 'opolskie', region: 'Opolszczyzny', desc: 'Opole to nasza siedziba i główna baza operacyjna. Doskonała znajomość lokalnego rynku medycznego i bliskie relacje z placówkami zdrowotnymi regionu pozwalają nam na najszybszy czas reakcji.', intro: 'Jako firma z siedzibą w Opolu, zapewniamy najkrótsze czasy dojazdu i priorytetową obsługę placówek medycznych w mieście i na terenie województwa opolskiego. Region Opolszczyzny to nasz macierzysty rynek.' },
+  { slug: 'gorzow-wielkopolski', name: 'Gorzów Wielkopolski', voivodeship: 'lubuskie', region: 'ziemi lubuskiej', desc: 'Gorzów Wielkopolski jako współstolica województwa lubuskiego dysponuje ważnymi placówkami szpitalnymi i diagnostycznymi. Wielospecjalistyczny Szpital Wojewódzki to kluczowy odbiorca usług serwisowych w regionie.', intro: 'Obsługujemy placówki medyczne w Gorzowie Wielkopolskim i na terenie województwa lubuskiego. Nasza obecność w regionie ziemi lubuskiej zapewnia sprawną obsługę techniczną aparatury medycznej.' },
+  { slug: 'zielona-gora', name: 'Zielona Góra', voivodeship: 'lubuskie', region: 'ziemi lubuskiej', desc: 'Zielona Góra to drugie z dwóch głównych miast województwa lubuskiego z rozwiniętą bazą szpitalną. Szpital Uniwersytecki i placówki specjalistyczne tworzą stabilne zapotrzebowanie na usługi serwisowe.', intro: 'Świadczymy usługi serwisowe w Zielonej Górze i okolicach. Razem z Gorzowem Wielkopolskim obsługujemy cały region ziemi lubuskiej, zapewniając profesjonalną opiekę nad sprzętem medycznym.' },
+  ];
+  return cities.map((city) => ({
+    params: { city: city.slug },
+    props: { city },
+  }));
+}
+
+const { city } = Astro.props;
+
+const services = [
+  {
+    title: 'Naprawy sprzętu medycznego',
+    description: `Diagnozujemy i naprawiamy usterki aparatury medycznej w ${city.name}. Dysponujemy częściami zamiennymi do większości popularnych urządzeń, co skraca czas przestoju sprzętu do minimum.`,
+    features: ['Diagnostyka usterek', 'Wymiana podzespołów', 'Naprawa elektroniki sterującej', 'Regeneracja mechanizmów'],
+  },
+  {
+    title: 'Przeglądy techniczne',
+    description: `Wykonujemy okresowe przeglądy techniczne wymagane przepisami prawa. Placówki medyczne w ${city.name} mogą liczyć na terminową realizację i pełną dokumentację przeglądów.`,
+    features: ['Przeglądy okresowe i gwarancyjne', 'Testy bezpieczeństwa elektrycznego', 'Kontrola parametrów technicznych', 'Prowadzenie paszportów technicznych'],
+  },
+  {
+    title: 'Kalibracja urządzeń',
+    description: `Precyzyjna kalibracja aparatury pomiarowej i diagnostycznej zgodnie z wymaganiami producenta i obowiązującymi normami. Wystawiamy certyfikaty kalibracji.`,
+    features: ['Kalibracja aparatury pomiarowej', 'Weryfikacja dokładności wskazań', 'Certyfikaty i świadectwa kalibracji', 'Zgodność z normami PN-EN'],
+  },
+  {
+    title: 'Umowy serwisowe',
+    description: `Oferujemy elastyczne umowy serwisowe dla placówek w ${city.name} i województwie ${city.voivodeship}. Stałe stawki, priorytetowa obsługa i przewidywalne koszty utrzymania sprzętu.`,
+    features: ['Priorytetowe czasy reakcji', 'Stałe stawki miesięczne', 'Planowane przeglądy w harmonogramie', 'Części zamienne w cenie umowy'],
+  },
+];
+
+const facilities = [
+  { name: 'Szpitale i kliniki', description: 'Obsługujemy szpitale publiczne, kliniczne i prywatne kliniki specjalistyczne.' },
+  { name: 'Przychodnie i gabinety lekarskie', description: 'Serwisujemy sprzęt w przychodniach POZ, gabinetach specjalistycznych i prywatnych praktykach.' },
+  { name: 'Laboratoria diagnostyczne', description: 'Zapewniamy sprawność aparatury laboratoryjnej — wirówek, analizatorów, mikroskopów.' },
+  { name: 'Gabinety stomatologiczne', description: 'Naprawiamy i konserwujemy unity, autoklawy, aparaty RTG i kompresory.' },
+  { name: 'Centra rehabilitacji', description: 'Serwisujemy stoły rehabilitacyjne, urządzenia do fizykoterapii i sprzęt do ćwiczeń.' },
+  { name: 'Gabinety weterynaryjne', description: 'Obsługujemy również aparaturę medyczną stosowaną w weterynarii.' },
+];
+
+const isOpole = city.slug === 'opole';
+---
+
+<Layout
+  title={`Serwis sprzętu medycznego ${city.name}`}
+  description={`Profesjonalny serwis sprzętu medycznego w ${city.name} — naprawy, przeglądy techniczne, kalibracja urządzeń medycznych. Dojazd do klienta w ${city.name} i okolicach. Woj. ${city.voivodeship}.`}
+>
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-br from-secondary via-secondary to-primary-dark overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="w-72 h-72 bg-primary rounded-full blur-3xl absolute top-20 left-10"></div>
+      <div class="w-96 h-96 bg-accent rounded-full blur-3xl absolute bottom-10 right-20"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6">
+          <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+          <span class="text-white/80 text-sm font-medium">Województwo {city.voivodeship}</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+          Serwis sprzętu medycznego
+          <span class="text-primary-light">— {city.name}</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-300 leading-relaxed mb-10 max-w-2xl">
+          {city.intro}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="/kontakt"
+            class="inline-flex items-center justify-center px-8 py-4 bg-accent text-white rounded-xl text-lg font-semibold hover:bg-accent-dark transition-colors shadow-lg shadow-accent/25"
+          >
+            Zgłoś serwis w {city.name}
+            <svg class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+          <a
+            href="/uslugi"
+            class="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl text-lg font-semibold hover:bg-white/20 transition-colors border border-white/20"
+          >
+            Pełna oferta usług
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About services in city -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl font-bold text-secondary mb-6">
+          Profesjonalny serwis urządzeń medycznych w {city.name}
+        </h2>
+        <p class="text-text-light text-lg leading-relaxed mb-4">
+          {city.desc}
+        </p>
+        <p class="text-text-light text-lg leading-relaxed mb-4">
+          Nasza firma, z siedzibą w Opolu, świadczy usługi serwisowe na terenie całej Polski — w tym
+          {isOpole ? 'przede wszystkim w Opolu i najbliższych okolicach' : `w ${city.name} i całym województwie ${city.voivodeship}`}.
+          Dysponujemy zespołem doświadczonych techników specjalizujących się w naprawach, przeglądach i kalibracji sprzętu medycznego.
+        </p>
+        <p class="text-text-light text-lg leading-relaxed">
+          Współpracujemy zarówno z dużymi szpitalami, jak i małymi gabinetami lekarskimi w regionie {city.region}.
+          Każde zlecenie traktujemy z jednakową starannością, bo wiemy, że sprawny sprzęt medyczny to kwestia zdrowia i bezpieczeństwa pacjentów.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-16 lg:py-24 bg-surface-alt">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-secondary mb-12">Zakres usług serwisowych</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {services.map((service) => (
+          <div class="bg-white p-8 rounded-2xl border border-slate-200 hover:border-primary/30 transition-colors">
+            <h3 class="text-2xl font-bold text-secondary mb-3">{service.title}</h3>
+            <p class="text-text-light mb-6">{service.description}</p>
+            <ul class="space-y-2">
+              {service.features.map((feature) => (
+                <li class="flex items-center gap-3 text-sm">
+                  <svg class="w-5 h-5 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span class="text-text">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Response time & coverage -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-secondary mb-6">
+            Dojazd do klienta w {city.name} i okolicach
+          </h2>
+          <p class="text-text-light text-lg leading-relaxed mb-6">
+            {isOpole
+              ? 'Jako firma z siedzibą w Opolu, zapewniamy najkrótszy czas dojazdu do placówek w mieście — zwykle tego samego dnia roboczego. W pilnych przypadkach jesteśmy w stanie przyjechać w ciągu kilku godzin.'
+              : `Regularnie obsługujemy placówki medyczne w ${city.name} i województwie ${city.voivodeship}. Planujemy trasy serwisowe tak, aby zapewnić optymalne czasy dojazdu i minimalizować koszty transportu dla naszych klientów.`
+            }
+          </p>
+          <p class="text-text-light text-lg leading-relaxed">
+            W przypadku awarii krytycznej sprzętu — np. respiratora, defibrylatora czy aparatu do znieczulenia — oferujemy tryb priorytetowy z maksymalnie skróconym czasem reakcji.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-surface-alt p-6 rounded-2xl text-center">
+            <div class="text-3xl font-extrabold text-primary mb-1">{isOpole ? '<4h' : '<24h'}</div>
+            <div class="text-sm text-text-light">Czas reakcji{isOpole ? '' : ' standardowy'}</div>
+          </div>
+          <div class="bg-surface-alt p-6 rounded-2xl text-center">
+            <div class="text-3xl font-extrabold text-primary mb-1">24/7</div>
+            <div class="text-sm text-text-light">Zgłoszenia awaryjne</div>
+          </div>
+          <div class="bg-surface-alt p-6 rounded-2xl text-center">
+            <div class="text-3xl font-extrabold text-primary mb-1">Cała PL</div>
+            <div class="text-sm text-text-light">Zasięg działania</div>
+          </div>
+          <div class="bg-surface-alt p-6 rounded-2xl text-center">
+            <div class="text-3xl font-extrabold text-primary mb-1">FV</div>
+            <div class="text-sm text-text-light">Faktura VAT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Facilities served -->
+  <section class="py-16 lg:py-24 bg-surface-alt">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-secondary mb-4">
+        Kogo obsługujemy w {city.name}?
+      </h2>
+      <p class="text-text-light text-lg mb-12 max-w-2xl">
+        Świadczymy usługi serwisowe dla różnego rodzaju placówek medycznych — od wielooddziałowych szpitali po jednoosobowe gabinety lekarskie.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {facilities.map((facility) => (
+          <div class="bg-white p-6 rounded-2xl border border-slate-200">
+            <h3 class="text-lg font-bold text-secondary mb-2">{facility.name}</h3>
+            <p class="text-sm text-text-light">{facility.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</Layout>

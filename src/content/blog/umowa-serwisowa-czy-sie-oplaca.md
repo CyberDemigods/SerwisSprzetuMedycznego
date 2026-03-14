@@ -2,6 +2,7 @@
 title: "Umowa serwisowa na sprzęt medyczny — czy się opłaca?"
 description: "Umowa serwisowa to sposób na przewidywalne koszty i priorytetową obsługę. Sprawdź, kiedy warto ją podpisać i co powinna zawierać."
 date: "2026-02-28"
+image: "/images/blog/umowa-serwisowa.svg"
 tags: ["umowy serwisowe", "porady", "koszty"]
 ---
 

@@ -2,6 +2,7 @@
 title: "Bezpieczeństwo elektryczne sprzętu medycznego — na co zwrócić uwagę"
 description: "Bezpieczeństwo elektryczne to fundament eksploatacji sprzętu medycznego. Poznaj klasy ochronności, typowe zagrożenia i sposoby ich eliminacji."
 date: "2025-12-15"
+image: "/images/blog/bezpieczenstwo.svg"
 tags: ["bezpieczeństwo", "elektryka", "normy"]
 ---
 

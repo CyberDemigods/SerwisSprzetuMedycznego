@@ -2,6 +2,7 @@
 title: "Norma PN-EN 62353 — co musisz wiedzieć o badaniach sprzętu medycznego"
 description: "Norma PN-EN 62353 określa zasady badań okresowych i po naprawie medycznych urządzeń elektrycznych. Dowiedz się, jakie obowiązki nakłada na placówki medyczne."
 date: "2026-03-10"
+image: "/images/blog/norma-62353.svg"
 tags: ["normy", "bezpieczeństwo", "prawo"]
 ---
 

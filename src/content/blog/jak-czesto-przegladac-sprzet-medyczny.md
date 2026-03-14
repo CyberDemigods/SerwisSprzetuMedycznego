@@ -2,6 +2,7 @@
 title: "Jak często należy przeglądać sprzęt medyczny?"
 description: "Regularne przeglądy techniczne sprzętu medycznego to nie tylko wymóg prawny, ale przede wszystkim kwestia bezpieczeństwa pacjentów. Dowiedz się, jakie terminy obowiązują."
 date: "2026-02-15"
+image: "/images/blog/przeglady.svg"
 tags: ["przeglądy", "prawo", "bezpieczeństwo"]
 ---
 

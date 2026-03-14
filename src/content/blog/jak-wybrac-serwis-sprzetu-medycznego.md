@@ -2,6 +2,7 @@
 title: "Na co zwrócić uwagę wybierając serwis sprzętu medycznego?"
 description: "Wybór odpowiedniego serwisu sprzętu medycznego to kluczowa decyzja dla każdej placówki. Podpowiadamy, na jakie kryteria warto zwrócić uwagę."
 date: "2026-03-05"
+image: "/images/blog/wybor-serwisu.svg"
 tags: ["porady", "serwis"]
 ---
 

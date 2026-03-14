@@ -2,6 +2,7 @@
 title: "Najczęstsze usterki stołów rehabilitacyjnych i jak im zapobiegać"
 description: "Stoły rehabilitacyjne to podstawowe wyposażenie każdego gabinetu fizjoterapii. Poznaj najczęstsze usterki i dowiedz się, jak przedłużyć żywotność sprzętu."
 date: "2026-01-20"
+image: "/images/blog/stoly-rehabilitacyjne.svg"
 tags: ["rehabilitacja", "naprawy", "porady"]
 ---
 

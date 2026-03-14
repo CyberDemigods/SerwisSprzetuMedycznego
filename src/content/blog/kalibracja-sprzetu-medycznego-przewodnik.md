@@ -2,6 +2,7 @@
 title: "Kalibracja sprzętu medycznego — dlaczego jest tak ważna?"
 description: "Kalibracja urządzeń medycznych zapewnia dokładność pomiarów i bezpieczeństwo pacjentów. Dowiedz się, jakie urządzenia wymagają kalibracji i jak często ją wykonywać."
 date: "2026-01-05"
+image: "/images/blog/kalibracja.svg"
 tags: ["kalibracja", "bezpieczeństwo", "diagnostyka"]
 ---
 
