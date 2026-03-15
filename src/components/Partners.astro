@@ -1,6 +1,6 @@
 ---
 const partners = [
-  { name: 'Sumer', url: 'https://sumerline.pl', logo: '/images/partners/sumer.webp' },
+  { name: 'Sumer', url: 'https://sumerline.pl', logo: '/images/partners/sumer.webp', invert: true },
   { name: 'MedTech Systems', url: '/', logo: '/images/partners/medtech-systems.svg' },
   { name: 'RehaPlus', url: '/', logo: '/images/partners/rehaplus.svg' },
   { name: 'DiagMed', url: '/', logo: '/images/partners/diagmed.svg' },
@@ -30,7 +30,10 @@ const partners = [
             <img
               src={partner.logo}
               alt={partner.name}
-              class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+              class:list={[
+                "max-h-full max-w-full object-contain group-hover:scale-105 transition-transform",
+                partner.invert && "invert"
+              ]}
               loading="lazy"
             />
           </a>
